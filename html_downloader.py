@@ -1,16 +1,17 @@
-# coding:utf-8
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 import urllib2
+import sys
 
 class HtmlDownloader(object):
 
     def download(self, url):
         if url is None:
-        	return None
+            return
 
         response = urllib2.urlopen(url)
 
-        # 请求失败
         if response.getcode() != 200:
-        	return None
+            return None
 
         return response.read()
